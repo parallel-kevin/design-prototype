@@ -20,7 +20,7 @@
 
 'use strict';
 
-goog.provide('Blockly.Blocks.motion');
+goog.provide('Blockly.Blocks.method');
 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Colours');
@@ -28,22 +28,38 @@ goog.require('Blockly.constants');
 goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
 
-Blockly.Blocks['motion_movesteps'] = {
-    /**
-     * Block to move steps.
-     * @this Blockly.Block
-     */
+Blockly.Blocks['super_class_method'] = {
     init: function() {
         this.jsonInit({
-            "message0": "move %1 steps",
+            "message0": "发出叫声",
+            "category": Blockly.Categories.method,
+            "extensions": ["colours_motion", "shape_end"]
+        });
+    }
+}
+
+Blockly.Blocks['sub_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "发出 %1 的叫声",
             "args0": [
                 {
                     "type": "input_value",
-                    "name": "STEPS"
+                    "name": "VOICE"
                 }
             ],
-            "category": Blockly.Categories.motion,
-            "extensions": ["colours_motion", "shape_statement"]
+            "category": Blockly.Categories.method,
+            "extensions": ["colours_motion", "shape_end"]
         });
     }
-};
+}
+
+Blockly.Blocks['implement_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "发出叫声",
+            "category": Blockly.Categories.method,
+            "extensions": ["colours_motion", "shape_end"]
+        });
+    }
+}

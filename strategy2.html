@@ -16,7 +16,8 @@
     <script src="./blocks_common/colour.js"></script>
     <script src="./blocks_strategy/class.js"></script>
     <script src="./blocks_strategy/method.js"></script>
-    <script src="./blocks_strategy/strategy_toolbox1.js"></script>
+    <script src="./blocks_strategy/attribute.js"></script>
+    <script src="./blocks_strategy/strategy_toolbox2.js"></script>
 
     <script>
         'use strict';
@@ -117,11 +118,9 @@
         function logger(e) {
             console.log(e);
         }
-        
+
         function runCode() {
-            var code = Blockly['JavaScript'].workspaceToCode(workspace);
-            console.log(code);
-            alert(code);
+            alert(Blockly['JavaScript'].workspaceToCode(workspace));
         }
 
     </script>
@@ -178,8 +177,10 @@
     </style>
 </head>
 <body onload="start()">
+
     <div id="collaborators"></div>
     <div id="blocklyDiv"></div>
+    <!-- Simple toolbox -->
     <xml id="toolbox-simple" style="display: none">
         <block type="operator_random">
             <value name="FROM">
@@ -295,8 +296,8 @@
     </xml>
 
     <div class="description">
-        <div>策略模式是指对一系列的算法定义，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化</div>
-        <div>在本场景中，请使用具体类“牛”实现接口，使牛能发出“哞哞”的叫声</div>
+        <div>在本场景中，类属性即是前一场景中具体类的实例，通过改变实例的类，就能方便地切换方法的实现</div>
+        <div>请给“动物”类加上适当的属性和方法</div>
         <input type="button" value="Run Code" onclick="runCode()">
         <input type="button" value="下一场景" onclick="window.location.href='./strategy2.html'">
     </div>
