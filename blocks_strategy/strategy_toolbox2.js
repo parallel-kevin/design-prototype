@@ -29,21 +29,12 @@ goog.require('Blockly.Blocks');
  */
 
 Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: none">' +
-    '<category name="类" colour="#4C97FF" secondaryColour="#3373CC">' +
-        '<block type="implement_class" id="implement_class">' +
-            '<value name="CLASS_NAME">' +
-                '<shadow type="text">' +
-                    '<field name="TEXT">动物</field>' +
-                '</shadow>' +
-            '</value>' +
+    '<category name="Class" colour="#4C97FF" secondaryColour="#3373CC">' +
+        '<block type="sub_class" id="sub_class">' +
         '</block>' +
     '</category>' +
-    '<category name="方法" colour="#9966FF" secondaryColour="#774DCB">' +
-        '<block type="implement_class_method" id="implement_class_method">' +
-        '</block>' +
-    '</category>' +
-    '<category name="属性" colour="#D65CD6" secondaryColour="#BD42BD">' +
-        '<block type="implement_class_attribute" id="implement_class_attribute">' +
+    '<category name="Method" colour="#9966FF" secondaryColour="#774DCB">' +
+        '<block type="sub_class_method" id="sub_class_method">' +
         '</block>' +
     '</category>' +
     '</xml>';

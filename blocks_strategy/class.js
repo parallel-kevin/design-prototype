@@ -27,45 +27,60 @@ goog.require('Blockly.Colours');
 goog.require('Blockly.constants');
 goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
-
-Blockly.Blocks['sub_class'] = {
-    init: function() {
-        this.jsonInit({
-            "message0": "类名 %1 拥有方法 %2",
-            "args0": [
-                {
-                    "type": "input_value",
-                    "name": "CLASS_NAME"
-                },
-                {
-                    "type": "input_statement",
-                    "name": "METHOD",
-                    "check": "sub_class_method"
-                }
-            ],
-            "category": Blockly.Categories.class,
-            "extensions": ["colours_motion", "shape_end"]
-        });
-    }
-}
+var super_class_name = document.cookie.replace(/(?:(?:^|.*;\s*)super_class_name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+var sub_class_name = document.cookie.replace(/(?:(?:^|.*;\s*)sub_class_name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+var abstract_class_name = document.cookie.replace(/(?:(?:^|.*;\s*)abstract_class_name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
 Blockly.Blocks['super_class'] = {
     init: function() {
         this.jsonInit({
-            "message0": "接口名 %1 拥有方法 %2",
+            "message0": "Abstract class  " + super_class_name + " %1 Methods      %2",
             "args0": [
                 {
-                    "type": "input_value",
-                    "name": "CLASS_NAME"
+                    "type": "input_dummy"
                 },
                 {
                     "type": "input_statement",
                     "name": "METHOD",
-                    "check": "super_class_method"
+                    "check": "super_method"
                 }
             ],
             "category": Blockly.Categories.class,
-            "extensions": ["colours_motion", "shape_hat"]
+            "nextStatement": "class",
+            "output": "super_class",
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['sub_class'] = {
+    init: function() {
+        var options = [
+            ['BronzeMember', '0'],
+            ['SilverMember', '1'],
+            ['GoldMember', '2'],
+        ];
+        this.jsonInit({
+            "message0": "Class        %1 %2 Methods %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "CLASS_NAME",
+                    "options": options
+                },
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "sub_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "previousStatement": "class",
+            "input": "super_class",
+            "extensions": ["colours_class"]
         });
     }
 }
@@ -73,23 +88,222 @@ Blockly.Blocks['super_class'] = {
 Blockly.Blocks['implement_class'] = {
     init: function() {
         this.jsonInit({
-            "message0": "类名 %1 类属性 %2 拥有方法 %3",
+            "message0": "Class   TestCase %1 Attributes %2 Methods %3",
             "args0": [
                 {
-                    "type": "input_value",
-                    "name": "CLASS_NAME"
+                    "type": "input_dummy"
                 },
                 {
                     "type": "input_statement",
-                    "name": "ATTRIBUTE"
+                    "name": "ATTRIBUTE",
+                    "check": "implement_class_attribute"
                 },
                 {
                     "type": "input_statement",
-                    "name": "METHOD"
+                    "name": "METHOD",
+                    "check": "implement_class_method"
                 }
             ],
             "category": Blockly.Categories.class,
-            "extensions": ["colours_motion", "shape_hat"]
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['sub_class_fix'] = {
+    init: function() {
+        var options;
+        switch (super_class_name) {
+            case "BeverageFactory":
+                options = [
+                    ['CoffeeFactory', '0'],
+                    ['CokeFactory', '1'],
+                ];
+                break;
+            case "Beverage":
+                options = [
+                    ['Coffee', '0'],
+                    ['Coke', '1'],
+                ];
+                break;
+            case "AbstractCoffee":
+                options = [
+                    ['Latte', '0'],
+                    ['Mocha', '1'],
+                ];
+                break;
+        }
+        this.jsonInit({
+            "message0": "Class        %1 %2 Methods %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "CLASS_NAME",
+                    "options": options
+                },
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "sub_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "previousStatement": "class",
+            "input": "super_class",
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['abstract_class_fix'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "类名         " + abstract_class_name + " %1 类属性 %2 拥有方法 %3",
+            "args0": [
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "ATTRIBUTE",
+                    "check": "abstract_class_attribute"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "abstract_class_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_implement_class'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "Class   TestCase %1 Attributes %2 Functions %3",
+            "args0": [
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "ATTRIBUTE",
+                    "check": "implement_class_attribute"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "implement_class_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_super_class'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "Abstract Class      CoffeeWithIngredient %1 Methods %2",
+            "args0": [
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "super_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "previousStatement": "class",
+            "nextStatement": "decorator_class",
+            "input": "super_class",
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_sub_class'] = {
+    init: function() {
+        var options = [
+            ['CoffeeWithMilk', '0'],
+            ['CoffeeWithEspresso', '1'],
+        ];
+        this.jsonInit({
+            "message0": "Class      %1 %2 Methods %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "CLASS_NAME",
+                    "options": options
+                },
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "METHOD",
+                    "check": "decorator_method"
+                }
+            ],
+            "category": Blockly.Categories.class,
+            "previousStatement": "decorator_class",
+            "input": "super_class",
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_implement_base_class'] = {
+    init: function() {
+        var options = [
+            ['Latte', '0'],
+            ['Mocha', '1'],
+        ];
+        this.jsonInit({
+            "message0": "Class      %1 Methods printIngredient()",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "CLASS_NAME",
+                    "options": options
+                },
+            ],
+            "category": Blockly.Categories.class,
+            "nextStatement": "decorator_class",
+            "output": "base_class",
+            "extensions": ["colours_class"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_implement_decorator_class'] = {
+    init: function() {
+        var options = [
+            ['CoffeeWithMilk', '0'],
+            ['CoffeeWithEspresso', '1'],
+        ];
+        this.jsonInit({
+            "message0": "Class      %1 Methods printIngredient()",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "CLASS_NAME",
+                    "options": options
+                },
+            ],
+            "category": Blockly.Categories.class,
+            "previousStatement": "decorator_class",
+            "nextStatement": "decorator_class",
+            "extensions": ["colours_class"]
         });
     }
 }

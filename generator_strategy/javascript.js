@@ -200,9 +200,9 @@ Blockly.JavaScript.finish = function(code) {
  * @param {string} line Line of generated code.
  * @return {string} Legal line of code.
  */
-Blockly.JavaScript.scrubNakedValue = function(line) {
-  return line + ';\n';
-};
+// Blockly.JavaScript.scrubNakedValue = function(line) {
+//   return line + ';\n';
+// };
 
 /**
  * Encode a string as a properly escaped JavaScript string, complete with

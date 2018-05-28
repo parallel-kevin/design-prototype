@@ -34,7 +34,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
         '</block>' +
     '</category>' +
     '<category name="Method" colour="#9966FF" secondaryColour="#774DCB">' +
-        '<block type="strategy_super_class_method" id="strategy_super_class_method">' +
+        '<block type="factory_method_super_class_method" id="factory_method_super_class_method">' +
         '</block>' +
     '</category>' +
     '</xml>';

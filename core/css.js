@@ -379,8 +379,8 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklySelected>.blocklyPath {',
-    // 'stroke: #fc3;',
-    // 'stroke-width: 3px;',
+    'stroke: #fc3;',
+    'stroke-width: 3px;',
   '}',
 
   '.blocklySelected>.blocklyPathLight {',
@@ -655,9 +655,9 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyAngleCircle {',
-    'stroke: ' + Blockly.Colours.motion.tertiary + ';',
+    'stroke: ' + Blockly.Colours.class.tertiary + ';',
     'stroke-width: 1;',
-    'fill: ' + Blockly.Colours.motion.secondary + ';',
+    'fill: ' + Blockly.Colours.class.secondary + ';',
   '}',
 
   '.blocklyAngleCenterPoint {',
@@ -1123,8 +1123,8 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyFlyoutCheckbox.checked {',
-    'fill: ' + Blockly.Colours.motion.primary + ';',
-    'stroke: ' + Blockly.Colours.motion.tertiary + ';',
+    'fill: ' + Blockly.Colours.class.primary + ';',
+    'stroke: ' + Blockly.Colours.class.tertiary + ';',
   '}',
 
   '.blocklyFlyoutCheckboxPath {',

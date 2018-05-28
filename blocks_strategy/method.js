@@ -27,13 +27,14 @@ goog.require('Blockly.Colours');
 goog.require('Blockly.constants');
 goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
-
-Blockly.Blocks['super_class_method'] = {
+/*      策略模式    */
+Blockly.Blocks['strategy_super_class_method'] = {
     init: function() {
         this.jsonInit({
-            "message0": "发出叫声",
+            "message0": "abstract calculatePrice(price)",
             "category": Blockly.Categories.method,
-            "extensions": ["colours_motion", "shape_end"]
+            "previousStatement": "super_method",
+            "extensions": ["colours_method"]
         });
     }
 }
@@ -41,15 +42,10 @@ Blockly.Blocks['super_class_method'] = {
 Blockly.Blocks['sub_class_method'] = {
     init: function() {
         this.jsonInit({
-            "message0": "发出 %1 的叫声",
-            "args0": [
-                {
-                    "type": "input_value",
-                    "name": "VOICE"
-                }
-            ],
+            "message0": "calculatePrice(price)",
             "category": Blockly.Categories.method,
-            "extensions": ["colours_motion", "shape_end"]
+            "previousStatement": "sub_method",
+            "extensions": ["colours_method"]
         });
     }
 }
@@ -57,9 +53,141 @@ Blockly.Blocks['sub_class_method'] = {
 Blockly.Blocks['implement_class_method'] = {
     init: function() {
         this.jsonInit({
-            "message0": "发出叫声",
+            "message0": "calculate(%1)",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "PRICE"
+                }
+            ],
             "category": Blockly.Categories.method,
-            "extensions": ["colours_motion", "shape_end"]
+            "input": "Method",
+            "previousStatement": "implement_class_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+/*      工厂方法模式    */
+Blockly.Blocks['factory_method_super_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "createBeverage",
+            "category": Blockly.Categories.method,
+            "previousStatement": "super_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_sub_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "createBeverage",
+            "category": Blockly.Categories.method,
+            "previousStatement": "sub_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_abstract_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "createBeverage",
+            "category": Blockly.Categories.method,
+            "previousStatement": "abstract_class_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_super_product_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "description",
+            "category": Blockly.Categories.method,
+            "previousStatement": "super_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_sub_product_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "description",
+            "category": Blockly.Categories.method,
+            "previousStatement": "sub_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_implement_create'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "createBeverage",
+            "category": Blockly.Categories.method,
+            "previousStatement": "implement_class_method",
+            "nextStatement": "implement_class_method_description",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_implement_description'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "description",
+            "category": Blockly.Categories.method,
+            "previousStatement": "implement_class_method_description",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+/*      装饰器模式    */
+Blockly.Blocks['decorator_method_super_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "printIngredient",
+            "category": Blockly.Categories.method,
+            "previousStatement": "super_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_sub_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "printIngredient",
+            "category": Blockly.Categories.method,
+            "previousStatement": "sub_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_decorate_super_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "printIngredient",
+            "category": Blockly.Categories.method,
+            "previousStatement": "super_method",
+            "extensions": ["colours_method"]
+        });
+    }
+}
+
+Blockly.Blocks['decorator_decorate_sub_class_method'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "printIngredient",
+            "category": Blockly.Categories.method,
+            "previousStatement": "decorator_method",
+            "extensions": ["colours_method"]
         });
     }
 }

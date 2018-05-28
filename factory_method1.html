@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>策略模式</title>
+    <title>工厂方法模式</title>
 
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/description.css">
@@ -23,24 +23,29 @@
     <script src="./blocks_common/colour.js"></script>
     <script src="./blocks_strategy/class.js"></script>
     <script src="./blocks_strategy/method.js"></script>
-    <script src="./blocks_strategy/attribute.js"></script>
-    <script src="./blocks_strategy/strategy_toolbox2.js"></script>
+    <script src="./blocks_strategy/factory_method_toolbox1.js"></script>
     <script src="./js/toolbox.js"></script>
-    <script src="js/strategy2.js"></script>
+    <script src="js/factory_method1.js"></script>
+
 
 </head>
 <body>
+
     <div class="header">
-        <span>策略模式</span>
+        <span>工厂方法模式</span>
         <div class="level">
+            <span class="level_number">1</span>
             <span class="level_dot"></span>
-            <span class="level_number">2</span>
+            <span class="level_dot"></span>
+            <span class="level_dot"></span>
             <span class="level_dot"></span>
         </div>
     </div>
 
     <div class="description">
-        <div>在本场景中，请为上一场景的抽象策略类添加具体实现，完成一个具体策略类。</div>
+        <div>工厂方法模式是先定义一个抽象工厂类，再通过具体工厂类创建产品的一种设计模式。</div>
+        <div>工厂方法模式能够在不改变源代码的情况下，仅通过增加新的具体工厂类，十分方便地添加新产品，符合“开闭原则”的设计思想</div>
+        <div>在本场景中，请完成对抽象接口“饮料工厂”的实现</div>
         <input type="button" value="Run Code" onclick="runCode()">
         <input id="nextSceneBtn" type="button" value="下一场景" disabled onclick="nextScene()">
         <pre id="result"></pre>
@@ -48,15 +53,6 @@
 
     <div id="collaborators"></div>
     <div id="blocklyDiv"></div>
-
-
-    <div class="modal fade" id="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">运行中，请等待</div>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="passModal">
         <div class="modal-dialog">

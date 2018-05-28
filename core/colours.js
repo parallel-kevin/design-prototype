@@ -25,17 +25,17 @@ goog.provide('Blockly.Colours');
 Blockly.Colours = {
   // SVG colours: these must be specificed in #RRGGBB style
   // To add an opacity, this must be specified as a separate property (for SVG fill-opacity)
-  "motion": {
+  "class": {
     "primary": "#4C97FF",
     "secondary": "#4280D7",
     "tertiary": "#3373CC"
   },
-  "looks": {
+  "method": {
     "primary": "#9966FF",
     "secondary": "#855CD6",
     "tertiary": "#774DCB"
   },
-  "sounds": {
+  "attribute": {
     "primary": "#CF63CF",
     "secondary": "#C94FC9",
     "tertiary": "#BD42BD"

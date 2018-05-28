@@ -20,21 +20,21 @@
 
 'use strict';
 
-goog.provide('Blockly.Blocks.defaultToolbox');
+goog.provide('Blockly.Blocks.statement');
 
 goog.require('Blockly.Blocks');
+goog.require('Blockly.Colours');
+goog.require('Blockly.constants');
+goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
-/**
- * @fileoverview Provide a default toolbox XML.
- */
-
-Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: none">' +
-    '<category name="Class" colour="#4C97FF" secondaryColour="#3373CC">' +
-        '<block type="super_class" id="super_class">' +
-        '</block>' +
-    '</category>' +
-    '<category name="Method" colour="#9966FF" secondaryColour="#774DCB">' +
-        '<block type="strategy_super_class_method" id="strategy_super_class_method">' +
-        '</block>' +
-    '</category>' +
-    '</xml>';
+/*      工厂方法模式    */
+Blockly.Blocks['factory_method_implement_create'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "createBeverage",
+            "category": Blockly.Categories.statement,
+            "previousStatement": "factory_method_implement_class",
+            "extensions": ["colours_method"]
+        });
+    }
+}

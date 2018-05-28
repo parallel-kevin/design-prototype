@@ -1,0 +1,25 @@
+.header {
+    font-size: 20px;
+    margin: 15px 10px;
+}
+
+.level {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.level_number {
+    background-color: #dddddd;
+    color: #000000;
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    padding: 6px 12px;
+}
+
+.level_dot {
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}

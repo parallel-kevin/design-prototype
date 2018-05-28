@@ -30,22 +30,69 @@ goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
 Blockly.Blocks['implement_class_attribute'] = {
     init: function() {
+        var options = [
+            ['BronzeMember', '0'],
+            ['SilverMember', '1'],
+            ['GoldMember', '2'],
+        ];
         this.jsonInit({
-            "message0": "%1 的叫声",
+            "message0": "%1",
             "args0": [
                 {
                     "type": "field_dropdown",
-                    "name": "ANIMAL_MENU",
-                    "options": [
-                        ['牛', '0'],
-                        ['狗', '1'],
-                        ['猫', '2'],
-                        ['老鼠', '3'],
-                    ]
+                    "name": "MEMBERSHIP",
+                    "options": options
                 }
             ],
             "category": Blockly.Categories.method,
-            "extensions": ["colours_motion", "shape_end"]
+            "previousStatement": "implement_class_attribute",
+            "extensions": ["colours_attribute"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_implement_class_attribute'] = {
+    init: function() {
+        var options = [
+            ['CoffeeFactory', '0'],
+            ['CokeFactory', '1'],
+        ];
+        this.jsonInit({
+            "message0": "%1",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FACTORY",
+                    "options": options
+                }
+            ],
+            "category": Blockly.Categories.method,
+            "previousStatement": "implement_class_attribute",
+            "extensions": ["colours_attribute"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_coffee_attribute_name'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "咖啡名",
+            "category": Blockly.Categories.method,
+            "previousStatement": "abstract_class_attribute",
+            "nextStatement": "abstract_class_attribute",
+            "extensions": ["colours_attribute"]
+        });
+    }
+}
+
+Blockly.Blocks['factory_method_coffee_attribute_bean'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "咖啡豆",
+            "category": Blockly.Categories.method,
+            "previousStatement": "abstract_class_attribute",
+            "nextStatement": "abstract_class_attribute",
+            "extensions": ["colours_attribute"]
         });
     }
 }

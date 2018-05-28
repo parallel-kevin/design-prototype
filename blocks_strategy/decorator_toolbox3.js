@@ -30,11 +30,11 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: none">' +
     '<category name="Class" colour="#4C97FF" secondaryColour="#3373CC">' +
-        '<block type="super_class" id="super_class">' +
+        '<block type="decorator_super_class" id="decorator_super_class">' +
         '</block>' +
     '</category>' +
     '<category name="Method" colour="#9966FF" secondaryColour="#774DCB">' +
-        '<block type="strategy_super_class_method" id="strategy_super_class_method">' +
+        '<block type="decorator_decorate_super_class_method" id="decorator_decorate_super_class_method">' +
         '</block>' +
     '</category>' +
     '</xml>';

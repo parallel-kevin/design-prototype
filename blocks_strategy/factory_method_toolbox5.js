@@ -30,11 +30,17 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: none">' +
     '<category name="Class" colour="#4C97FF" secondaryColour="#3373CC">' +
-        '<block type="super_class" id="super_class">' +
-        '</block>' +
+    '<block type="factory_method_implement_class" id="factory_method_implement_class">' +
+    '</block>' +
     '</category>' +
-    '<category name="Method" colour="#9966FF" secondaryColour="#774DCB">' +
-        '<block type="strategy_super_class_method" id="strategy_super_class_method">' +
-        '</block>' +
+    '<category name="Attribute" colour="#D65CD6" secondaryColour="#BD42BD">' +
+    '<block type="factory_method_implement_class_attribute" id="factory_method_implement_class_attribute">' +
+    '</block>' +
+    '</category>' +
+    '<category name="Function" colour="#9966FF" secondaryColour="#774DCB">' +
+    '<block type="factory_method_implement_create" id="factory_method_implement_create">' +
+    '</block>' +
+    '<block type="factory_method_implement_description" id="factory_method_implement_description">' +
+    '</block>' +
     '</category>' +
     '</xml>';

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>策略模式</title>
+    <title>工厂方法模式</title>
 
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/description.css">
     <link rel="stylesheet" href="./css/blockly.css">
+    <link rel="stylesheet" href="./css/hint.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
 
     <script src="./toolbox/jquery-3.3.1.min.js"></script>
@@ -24,31 +25,65 @@
     <script src="./blocks_strategy/class.js"></script>
     <script src="./blocks_strategy/method.js"></script>
     <script src="./blocks_strategy/attribute.js"></script>
-    <script src="./blocks_strategy/strategy_toolbox2.js"></script>
+    <script src="./blocks_strategy/factory_method_toolbox5.js"></script>
     <script src="./js/toolbox.js"></script>
-    <script src="js/strategy2.js"></script>
+    <script src="js/factory_method5.js"></script>
 
+    <style>
+        #anime {
+            display: none;
+        }
+
+        #anime div {
+            margin: 5px 0;
+        }
+
+        .anime-text {
+            display: inline-block;
+        }
+
+        #anime img {
+            width: 37px;
+            margin: 0 15px;
+            float: left;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <span>策略模式</span>
         <div class="level">
             <span class="level_dot"></span>
-            <span class="level_number">2</span>
             <span class="level_dot"></span>
+            <span class="level_dot"></span>
+            <span class="level_dot"></span>
+            <span class="level_number">5</span>
         </div>
     </div>
 
     <div class="description">
-        <div>在本场景中，请为上一场景的抽象策略类添加具体实现，完成一个具体策略类。</div>
+        <div>在前几个场景中，工厂方法模式的基础部分已经完成。</div>
+        <div>在本场景中，你可以通过改变具体工厂的方式，体验工厂方法模式的效果。</div>
         <input type="button" value="Run Code" onclick="runCode()">
-        <input id="nextSceneBtn" type="button" value="下一场景" disabled onclick="nextScene()">
+        <input id="nextSceneBtn" type="button" value="返回标题" disabled onclick="nextScene()">
         <pre id="result"></pre>
+        <div id="anime">
+            <div class="anime-text">
+                <div>
+                    Congratulations! You have created a cup of <span id="anime-product"></span>
+                </div>
+            </div>
+            <img src="" alt="">
+        </div>
     </div>
 
     <div id="collaborators"></div>
     <div id="blocklyDiv"></div>
 
+
+    <div id="hint" onclick="document.getElementById('hint').style.display='none'">
+        这就是上一个场景中你写的具体工厂类
+    </div>
 
     <div class="modal fade" id="modal">
         <div class="modal-dialog">

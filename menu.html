@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>设计模式可视化学习平台</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body {
@@ -30,15 +30,35 @@
         #main-area img {
             width: 100%;
         }
+
+        .done {
+            opacity: 0.2;
+        }
     </style>
 
+    <script src="./toolbox/jquery-3.3.1.min.js"></script>
     <script>
         function toDesign(category) {
-            window.location.href = "./" + category + ".html";
+            var status = window.localStorage.getItem(category);
+            if (status > 0) {
+                window.location.href = "./" + category + status + ".html";
+            } else {
+                window.location.href = "./" + category + "1.html";
+            }
+        }
+
+        function checkHistory() {
+            var designPatterns = ['strategy', 'factory_method', 'decorator'];
+            for (var designPattern of designPatterns) {
+                var status = window.localStorage.getItem(designPattern);
+                if (status === '0') {
+                    $('.'+designPattern).addClass('done');
+                }
+            }
         }
     </script>
 </head>
-<body>
+<body onload="checkHistory()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a class="navbar-brand" href="#">设计模式</a>
         <form class="form-inline">
@@ -50,32 +70,17 @@
 
     <div id="main-area" class="container">
         <div class="row">
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
+            <div class="theme-block col-lg strategy" onclick="toDesign('strategy')">
                 <img src="./img/strategy.jpg" alt="">
                 <div>策略模式</div>
             </div>
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
-                <img src="./img/strategy.jpg" alt="">
-                <div>策略模式</div>
+            <div class="theme-block col-lg factory_method" onclick="toDesign('factory_method')">
+                <img src="./img/factory_method.png" alt="" style="margin: 80px 0 40px">
+                <div>工厂方法模式</div>
             </div>
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
-                <img src="./img/strategy.jpg" alt="">
-                <div>策略模式</div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
-                <img src="./img/strategy.jpg" alt="">
-                <div>策略模式</div>
-            </div>
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
-                <img src="./img/strategy.jpg" alt="">
-                <div>策略模式</div>
-            </div>
-            <div class="theme-block col-lg" onclick="toDesign('strategy')">
-                <img src="./img/strategy.jpg" alt="">
-                <div>策略模式</div>
+            <div class="theme-block col-lg decorator" onclick="toDesign('decorator')">
+                <img src="./img/decorator.jpg" alt="">
+                <div>装饰器模式</div>
             </div>
         </div>
     </div>
